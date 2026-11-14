@@ -1,0 +1,28 @@
+# conda 환경 재현 파일입니다.
+# 다른 컴퓨터(또는 초기화 후)에서 아래 한 줄로 동일한 환경을 그대로 만들 수 있습니다:
+#   conda env create -f environment.yml
+# 그 뒤 활성화:
+#   conda activate default
+
+name: default            # 만들 환경 이름
+
+channels:                # 패키지를 받아오는 출처(저장소)
+  - defaults
+
+dependencies:
+  - python=3.12          # 이 환경의 파이썬 버전
+
+  # 아래 도구들은 conda 채널 대신 pip(PyPI)로 설치합니다.
+  # PyTorch는 Apple Silicon(M칩)에서 pip 설치본이 가장 안정적이라 pip로 통일했습니다.
+  - pip
+  - pip:
+      - torch==2.12.0          # PyTorch: 모델을 학습시키는 핵심 엔진(딥러닝 프레임워크)
+      - transformers==5.10.2   # HuggingFace Transformers: BERT 등 사전학습 모델을 가져다 쓰는 라이브러리
+      - datasets==5.0.0        # 데이터를 학습에 편한 형태로 다루는 보조 도구
+      - scikit-learn==1.9.0    # 데이터 분할(train/val/test)과 평가지표 계산용
+      - pandas==3.0.3          # CSV 같은 표 데이터를 읽고 다루는 도구
+      - evaluate==0.4.6        # 정확도/F1 등 평가지표를 표준 방식으로 계산
+      - accelerate==1.13.0     # 학습을 M4 칩(MPS) 등 하드웨어에 맞춰 자동 최적 실행
+      - jupyterlab             # 노트북을 브라우저에서 실행하는 환경
+      - ipykernel              # 노트북이 이 conda 환경을 커널로 쓰게 해주는 연결고리
+      - nbconvert              # 노트북을 실행/변환하는 도구

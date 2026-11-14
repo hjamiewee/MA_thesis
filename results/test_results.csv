@@ -1,0 +1,4 @@
+model,accuracy,macro_f1
+① 다수 클래스,0.5461,0.2355
+② TF-IDF + LogReg,0.4539,0.3787
+③ DistilBERT (파인튜닝),0.6099,0.5746

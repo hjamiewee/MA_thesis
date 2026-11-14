@@ -1,0 +1,23 @@
+# 논문 원본 PDF (대용량, 저장소에 포함하지 않음)
+*.pdf
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# 모델/체크포인트 산출물
+*.bin
+*.safetensors
+checkpoints/
+outputs/
+wandb/
+
+# macOS
+.DS_Store
+
+# COCA 에서 뽑은 데이터는 저장소에 넣지 않는다 (로컬에만 둔다 · data/README.md 참고)
+data/*.csv
+data/splits/
